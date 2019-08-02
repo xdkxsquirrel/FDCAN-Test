@@ -1,1 +1,2 @@
-FDCAN-Test
+# FDCAN-Test
+Using two STM32G431s, this code will talk back and forth over CAN FD. The data rate can be changed by changing a variable in the main.h file. This was used to test signal degridation over 100 feet of cable. So far only up to 3MBPS works. Next I will try to change the CAN Bus terminating resistor from 120 ohms to a combination of resistor and capacitor to ensure limited signal reflection. It is the consensus that this is what is causing the failure at higher data bit rates.
