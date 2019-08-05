@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\a6910\Downloads\CANFD\EWARM\settings\CANFD.CANFD.general.xcl" --backend -f "C:\Users\a6910\Downloads\CANFD\EWARM\settings\CANFD.CANFD.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\a6910\Documents\Git\FDCAN-Test\EWARM\settings\CANFD.CANFD.general.xcl" --backend -f "C:\Users\a6910\Documents\Git\FDCAN-Test\EWARM\settings\CANFD.CANFD.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\a6910\Downloads\CANFD\EWARM\settings\CANFD.CANFD.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\a6910\Downloads\CANFD\EWARM\settings\CANFD.CANFD.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\a6910\Documents\Git\FDCAN-Test\EWARM\settings\CANFD.CANFD.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\a6910\Documents\Git\FDCAN-Test\EWARM\settings\CANFD.CANFD.driver.xcl" 
 }

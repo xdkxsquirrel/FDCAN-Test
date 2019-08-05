@@ -96,7 +96,7 @@ int main(void)
   FDCAN_FilterTypeDef FilterConfig;
   FilterConfig.IdType = FDCAN_STANDARD_ID;
   FilterConfig.FilterIndex = 0;
-  FilterConfig.FilterType = FDCAN_FILTER_MASK;
+  FilterConfig.FilterType = FDCAN_FILTER_RANGE;
   FilterConfig.FilterConfig = FDCAN_FILTER_TO_RXFIFO0;
   FilterConfig.FilterID1 = 0x000;
   FilterConfig.FilterID2 = 0x7FF;
@@ -123,7 +123,7 @@ int main(void)
     payload[i] = i;
   }
   
-  //FDCAN_Send( 0x200, payload );
+  //FDCAN_Send( 0x200, payload );  // Comment this line out for RCVR
   /* USER CODE END 2 */
   
   /* Infinite loop */
@@ -131,8 +131,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    //FDCAN_Send( 0x200, payload );
-    HAL_Delay( 1 );
+    
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -201,7 +200,7 @@ void FDCAN_Send( uint32_t Identifier, uint8_t *payload )
   TxHeader.Identifier = Identifier;
   TxHeader.IdType = FDCAN_STANDARD_ID;
   TxHeader.TxFrameType = FDCAN_DATA_FRAME;
-  TxHeader.DataLength = FDCAN_DLC_BYTES_64;
+  TxHeader.DataLength = FDCAN_DLC_BYTES_64; //FDCAN_DLC_BYTES_64;
   TxHeader.ErrorStateIndicator = FDCAN_ESI_ACTIVE;
   TxHeader.BitRateSwitch = FDCAN_BRS_ON;
   TxHeader.FDFormat = FDCAN_FD_CAN;
@@ -235,9 +234,9 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
     {
       Error_Handler();
     }
-    if(RxHeader.Identifier == 0x200)
+    if(RxHeader.Identifier == 0x200) // 0x200 for RCVR 0x201 for TXR
     {
-      FDCAN_Send( 0x201, RxData);
+      FDCAN_Send( 0x201, RxData); // 0x201 for RCVR 0x200 for TXR
       HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
     }
   }

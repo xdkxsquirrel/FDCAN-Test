@@ -77,7 +77,7 @@ void FDCAN_Send( uint32_t Identifier, uint8_t *payload );
 #define CANFD_2MBPS 2
 #define CANFD_1MBPS 1
 
-#define CANFD_MBPS  CANFD_3MBPS
+#define CANFD_MBPS  CANFD_4MBPS
 #define HEAD_NUMBER 1
 /* USER CODE END Private defines */
 
